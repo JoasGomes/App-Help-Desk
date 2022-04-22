@@ -1,12 +1,9 @@
 <?php 
 
-    /* print_r($_GET);
+    session_start();
 
-    echo '<br/>';
-
-    echo $_GET['email'];
-    echo '<br/>';
-    echo $_GET['senha']; */
+    print_r($_SESSION);
+    echo '<hr />';
 
     //variavel que verifica se a autenticação foi feita
     $usuario_autenticado = false;
@@ -34,7 +31,9 @@
 
     if($usuario_autenticado){
         echo 'usuario autenticado';
+        $_SESSION['autenticado'] = 'SIM';
     } else{
+        $_SESSION['autenticado'] = 'NÃO';
         header('Location: index.php?login=erro');
     }
 
