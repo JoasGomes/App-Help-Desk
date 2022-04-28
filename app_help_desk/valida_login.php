@@ -1,10 +1,6 @@
 <?php 
 
     session_start();
-
-    print_r($_SESSION);
-    echo '<hr />';
-
     //variavel que verifica se a autenticação foi feita
     $usuario_autenticado = false;
 
@@ -16,9 +12,6 @@
 
     );
 
-    /* echo '<pre>';
-    print_r($usuarios_app);
-    echo '</pre>'; */
 
     //percorrendo os users e vendo se são compatíveis
     foreach($usuarios_app as $user){
@@ -32,20 +25,11 @@
     if($usuario_autenticado){
         echo 'usuario autenticado';
         $_SESSION['autenticado'] = 'SIM';
+        header('Location: home.php');
     } else{
         $_SESSION['autenticado'] = 'NÃO';
         header('Location: index.php?login=erro');
     }
 
-
-
-    //colocando a forma de envio dos dados
-    /* print_r($_POST);
-
-    echo '<br/>';
-
-    echo $_POST['email'];
-    echo '<br/>';
-    echo $_POST['senha'];  */
 
 ?>
